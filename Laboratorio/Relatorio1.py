@@ -2,9 +2,6 @@ class Professor:
     def __init__(self, nome):
         self.nome = nome
 
-    def __str__(self):
-        return self.nome
-
     def ministrar_aula(self, assunto):
         print(f'O professor {self.nome} esta ministrando uma aula sobre {assunto}')
 
