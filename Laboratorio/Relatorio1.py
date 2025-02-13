@@ -19,14 +19,14 @@ class Aula:
     def __init__(self, professor, assunto, alunos):
         self.professor = professor
         self.assunto = assunto
-        self.alunos = alunos if isinstance(alunos,list) else [alunos]
+        self.alunos = [alunos]
 
     def adicionar_aluno(self, alunos):
         self.alunos.append(alunos)
 
     def listar_presenca(self):
         print(f'Presenca na aula sobre {self.assunto}, '
-              f'ministrada pelo professor {self.professor}: ')
+              f'ministrada pelo professor {self.professor.nome}: ')
         for aluno in self.alunos:
             aluno.presenca()
 
