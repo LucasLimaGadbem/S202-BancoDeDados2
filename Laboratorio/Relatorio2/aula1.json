@@ -1,0 +1,20 @@
+{
+    "professor":{
+        "nome": "Christopher"
+    },
+    "assunto": "Programação Orientada a Objetos",
+    "alunos":[
+        {
+            "nome": "Isadora"
+        },
+        {
+            "nome": "Murilo"
+        },
+        {
+            "nome": "Lanna"
+        },
+        {
+            "nome": "Bruno"
+        }
+    ]
+}

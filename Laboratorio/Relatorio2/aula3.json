@@ -1,0 +1,20 @@
+{
+    "professor":{
+        "nome": "Victoria"
+    },
+    "assunto": "Inteligencia Computacional",
+    "alunos":[
+        {
+            "nome": "Lucas"
+        },
+        {
+            "nome": "Petterson"
+        },
+        {
+            "nome": "Virginia"
+        },
+        {
+            "nome": "Amanda"
+        }
+    ]
+}
