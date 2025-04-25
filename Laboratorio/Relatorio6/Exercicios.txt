@@ -1,0 +1,54 @@
+Questão 01
+
+Elabore consultas em Neo4j para obter os seguintes resultados:
+
+1. Todos os registros do banco de dados.
+	MATCH(n) RETURN n;
+
+2. Jogos lançados após o ano de 2012.
+	MATCH(g:Game)
+    	WHERE g.ano > 2012
+    	RETURN g;
+
+3. Jogos do gênero de terror.
+	MATCH(g:Game)
+    	where g.genero = 'Terror'
+    	RETURN g;
+
+4. Jogos com uma nota igual ou maior que 7.
+	MATCH(j:Jurado) - [r:JOGOU] -> (g:Game)
+    	where r.nota >= 7
+    	RETURN DISTINCT g;
+
+Questão 02
+
+1. Acrescente quatro novos jogos ao banco de dados.
+	CREATE (g:Game {titulo:'Valorant', genero:'Shooter', ano:2020});
+    	CREATE (g:Game {titulo:'Stardew Valley', genero:'Simulacao', ano:2016});
+    	CREATE (g:Game {titulo:'R.E.P.O.', genero:'Terror', ano:2025});
+    	CREATE (g:Game {titulo:'Rocket League', genero:'Futebol', ano:2015});
+
+2. Adicione três novos jurados ao banco de dados.
+	CREATE (:Jurado {nome:'Lucas'});
+    	CREATE (:Jurado {nome:'Dani'});
+    	CREATE (:Jurado {nome:'Sergio'});
+
+3. Estabeleça as relações entre os jurados e os jogos que eles avaliaram, incluindo a nota e a quantidade de horas jogadas.
+	MATCH (j:Jurado {nome:'Lucas'}), (g:Game {titulo:'Valorant'})
+    	CREATE (j)-[:JOGOU {nota:7, horas:200}]->(g);
+
+    	MATCH (j:Jurado {nome:'Lucas'}), (g:Game {titulo:'R.E.P.O.'})
+    	CREATE (j)-[:JOGOU {nota:8, horas:50}]->(g);
+
+    	MATCH (j:Jurado {nome:'Dani'}), (g:Game {titulo:'Stardew Valley'})
+    	CREATE (j)-[:JOGOU {nota:10, horas:400}]->(g);
+
+    	MATCH (j:Jurado {nome:'Dani'}), (g:Game {titulo:'Minecraft'})
+    	CREATE (j)-[:JOGOU {nota:9, horas:800}]->(g);
+
+    	MATCH (j:Jurado {nome:'Sergio'}), (g:Game {titulo:'Rocket League'})
+    	CREATE (j)-[:JOGOU {nota:9, horas:120}]->(g);
+
+    	MATCH (j:Jurado {nome:'Sergio'}), (g:Game {titulo:'R.E.P.O.'})
+    	CREATE (j)-[:JOGOU {nota:6, horas:300}]->(g);
+
